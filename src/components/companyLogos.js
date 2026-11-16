@@ -51,9 +51,9 @@ const companies = [
 
 export default function CompanyLogos() {
   return (
-    <section className="w-full min-h-[233px] bg-[#0d0d0d] px-5 pt-20 pb-12">
+    <section className="w-full min-h-[233px] bg-[#f7f7f7] dark:bg-[#0d0d0d] px-5 pt-20 pb-12">
       <div className="mx-auto max-w-[1040px]">
-        <p className="mb-6 text-center text-[13px] font-normal leading-[18px] tracking-[-0.2px] text-[#929292]">
+        <p className="mb-6 text-center text-[13px] font-normal leading-[18px] tracking-[-0.2px] text-[#666] dark:text-[#929292]">
           The fastest-growing companies use Cal.com for scheduling
         </p>
 
@@ -66,7 +66,7 @@ export default function CompanyLogos() {
               <img
                 src={company.logo}
                 alt={company.name}
-                className="max-h-[25px] max-w-[125px] w-auto object-contain brightness-0 invert opacity-65"
+                className="max-h-[25px] max-w-[125px] w-auto object-contain opacity-65 dark:brightness-0 dark:invert"
               />
             </div>
           ))}

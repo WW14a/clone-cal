@@ -238,15 +238,32 @@ function TalkToSales() {
 
 export default function Navbar() {
   const [tight, setTight] = useState(false);
+  const [overFooter, setOverFooter] = useState(false);
   const [openValue, setOpenValue] = useState(null);
   const [hl, setHl] = useState({ x: 0, w: 0, visible: false, instant: false });
   const closeTimer = useRef(null);
 
   useEffect(() => {
-    const onScroll = () => setTight(window.scrollY > 8);
+    const onScroll = () => {
+      setTight(window.scrollY > 8);
+
+      const nav = document.querySelector('[data-nav-bar="true"]');
+      const footer = document.querySelector('[data-page-footer="true"]');
+      if (!nav || !footer) return;
+
+      const navRect = nav.getBoundingClientRect();
+      const footerRect = footer.getBoundingClientRect();
+      setOverFooter(
+        footerRect.top < navRect.bottom && footerRect.bottom > navRect.top,
+      );
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   const moveHighlight = (el) =>
@@ -271,6 +288,7 @@ export default function Navbar() {
     <nav
       aria-label="Main"
       data-nav-bar="true"
+      data-over-footer={overFooter ? "true" : "false"}
       data-tight={tight ? "1" : "0"}
       className="sticky top-2 z-40 mx-auto mt-2 flex h-16 w-[calc(100%-2*var(--page-margin))] max-w-(--page-max) items-center justify-between gap-4 rounded-2xl xl:gap-6 bg-[rgba(244,244,244,0.72)] px-(--page-gutter) backdrop-blur-[12px] dark:bg-[rgba(23,23,23,0.72)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]"
     >

@@ -72,13 +72,14 @@ const THEMES = {
     label: "ChatGPT",
     version: "5",
     placeholder: "Ask anything",
-    root: "bg-[#212121] text-[#ececec]",
-    line: "border-[#2f2f2f]",
-    bubble: "bg-[#303030]",
-    input: "border-transparent bg-[#303030]",
+    root: "bg-white text-[#171717] dark:bg-[#212121] dark:text-[#ececec]",
+    line: "border-[#e5e5e5] dark:border-[#2f2f2f]",
+    bubble: "bg-[#f1f1f1] dark:bg-[#303030]",
+    input:
+      "border-[#e5e5e5] bg-white dark:border-transparent dark:bg-[#303030]",
     send: "bg-white text-black",
-    accent: "#ececec",
-    status: "text-[#ececec]",
+    accent: "#171717",
+    status: "text-[#525252] dark:text-[#ececec]",
     serif: false,
   },
   claude: {
@@ -99,13 +100,13 @@ const THEMES = {
     label: "Grok",
     version: "",
     placeholder: "Ask Grok anything",
-    root: "bg-[#0a0a0a] text-[#f5f5f5]",
-    line: "border-[#1f1f1f]",
-    bubble: "bg-[#1c1c1c]",
-    input: "border-[#262626] bg-[#141414]",
+    root: "bg-white text-[#171717] dark:bg-[#0a0a0a] dark:text-[#f5f5f5]",
+    line: "border-[#e5e5e5] dark:border-[#1f1f1f]",
+    bubble: "bg-[#f1f1f1] dark:bg-[#1c1c1c]",
+    input: "border-[#e5e5e5] bg-white dark:border-[#262626] dark:bg-[#141414]",
     send: "bg-white text-black",
-    accent: "#f5f5f5",
-    status: "text-[#d4d4d4]",
+    accent: "#171717",
+    status: "text-[#525252] dark:text-[#d4d4d4]",
     serif: false,
   },
   cursor: {
@@ -125,26 +126,27 @@ const THEMES = {
     label: "Gemini",
     version: "",
     placeholder: "Ask Gemini",
-    root: "bg-[#1e1f20] text-[#e3e3e3]",
-    line: "border-[#2f3032]",
-    bubble: "bg-[#282a2c]",
-    input: "border-[#3c4043] bg-[#1e1f20]",
+    root: "bg-white text-[#1f1f1f] dark:bg-[#1e1f20] dark:text-[#e3e3e3]",
+    line: "border-[#e5e7eb] dark:border-[#2f3032]",
+    bubble: "bg-[#f0f4f9] dark:bg-[#282a2c]",
+    input:
+      "border-[#e5e7eb] bg-[#f8fafd] dark:border-[#3c4043] dark:bg-[#1e1f20]",
     send: "bg-[#a8c7fa] text-[#062e6f]",
     accent: "#8ab4f8",
-    status: "text-[#c4c7c5]",
+    status: "text-[#5f6368] dark:text-[#c4c7c5]",
     serif: false,
   },
   perplexity: {
     label: "Perplexity",
     version: "",
     placeholder: "Ask a follow-up",
-    root: "bg-[#191a1a] text-[#e7e7e2]",
-    line: "border-[#2a2c2c]",
-    bubble: "bg-[#202222]",
-    input: "border-[#2a2c2c] bg-[#202222]",
+    root: "bg-white text-[#202222] dark:bg-[#191a1a] dark:text-[#e7e7e2]",
+    line: "border-[#e5e7e7] dark:border-[#2a2c2c]",
+    bubble: "bg-[#f1f7f7] dark:bg-[#202222]",
+    input: "border-[#e5e7e7] bg-white dark:border-[#2a2c2c] dark:bg-[#202222]",
     send: "bg-[#20b8cd] text-[#0b1f22]",
     accent: "#20b8cd",
-    status: "text-[#c9c9c4]",
+    status: "text-[#586363] dark:text-[#c9c9c4]",
     serif: false,
   },
 };
@@ -370,7 +372,7 @@ function AgentButton({ agent, active, onSelect, size }) {
         data-name={agent.name}
         style={{ "--size": `${size}px` }}
         className={cn(
-          "relative inline-grid size-(--size) flex-none place-items-center rounded-[calc(var(--size)*12/56)] text-hp-ink transition-[box-shadow,background-color] duration-150 ease-out",
+          "relative inline-grid size-(--size) flex-none place-items-center rounded-[calc(var(--size)*12/56)] text-hp-ink ring-1 ring-inset ring-black/10 dark:ring-white/10 transition-[box-shadow,background-color] duration-150 ease-out",
           "after:pointer-events-none after:absolute after:top-[calc(100%+8px)] after:left-1/2 after:z-2 after:-translate-x-1/2 after:-translate-y-1 after:rounded-md after:bg-hp-ink after:px-[7px] after:py-1 after:text-[11px] after:leading-none after:font-medium after:whitespace-nowrap after:text-hp-plate after:opacity-0 after:transition-[opacity,transform] after:duration-100 after:ease-in after:content-[attr(data-name)]",
           "hover:after:translate-y-0 hover:after:opacity-100 hover:after:duration-[160ms] hover:after:ease-out",
           active
@@ -395,7 +397,7 @@ function Chat({ agentId, step }) {
     <div
       data-agent-chat={agentId}
       className={cn(
-        "grid min-h-[320px] grid-rows-[auto_auto_auto_1fr_auto] gap-3.5 rounded-[18px] px-4 pt-3.5 pb-4 shadow-hp-raised max-tablet:min-h-[376px] max-tablet:px-3 max-tablet:pt-3 max-tablet:pb-3",
+        "grid min-h-[320px] grid-rows-[auto_auto_auto_1fr_auto] gap-3.5 rounded-[18px] px-4 pt-3.5 pb-4 shadow-hp-raised ring-1 ring-inset ring-black/10 dark:ring-white/10 max-tablet:min-h-[376px] max-tablet:px-3 max-tablet:pt-3 max-tablet:pb-3",
         theme.root,
       )}
     >
@@ -525,7 +527,7 @@ function InfoCard({ visible, label, children }) {
     <div
       className={cn(
         show(visible),
-        "rounded-[18px] bg-hp-raised px-4 pt-3 pb-3.5 shadow-hp-raised max-tablet:p-3",
+        "rounded-[18px] border bg-hp-raised px-4 pt-3 pb-3.5 shadow-hp-raised max-tablet:p-3",
       )}
     >
       <p className="mt-0 mb-2.5 text-xs leading-none font-medium text-hp-muted">
@@ -565,7 +567,7 @@ function AgentPanel({ running }) {
       style={{ "--i": 2 }}
       data-step={step >= 4 ? "confirmed" : "working"}
       className={cn(
-        "grid gap-4 rounded-[28px] bg-hp-plate p-7 shadow-hp-plate max-tablet:rounded-[22px] max-tablet:p-4",
+        "bg-secondary grid gap-4 rounded-[28px] dark:bg-hp-plate p-7 shadow-hp-plate max-tablet:rounded-[22px] max-tablet:p-4",
         REVEAL,
       )}
     >
@@ -620,7 +622,7 @@ function AgentPanel({ running }) {
       <InfoCard visible={step >= 6} label="AI Phone templates">
         <span
           aria-hidden="true"
-          className="grid size-8 flex-none place-items-center rounded-[9px] bg-hp-raised text-hp-ink shadow-hp-raised"
+          className="grid size-8 border flex-none place-items-center rounded-[9px] bg-hp-raised text-hp-ink shadow-hp-raised"
         >
           <PhoneOutgoing className="size-4" strokeWidth={1.6} />
         </span>
@@ -628,7 +630,7 @@ function AgentPanel({ running }) {
           <b>Call to confirm booking</b>
           <span>2 hrs before event starts</span>
         </span>
-        <span className="flex-none font-medium text-hp-body max-tablet:basis-full max-tablet:pl-11">
+        <span className="  flex-none font-medium text-hp-body max-tablet:basis-full max-tablet:pl-11">
           {s.phone}
         </span>
       </InfoCard>

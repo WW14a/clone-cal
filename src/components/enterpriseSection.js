@@ -234,7 +234,7 @@ export default function EnterpriseSection() {
                   width={32}
                   height={32}
                   unoptimized
-                  className="h-8 w-auto opacity-60 "
+                  className="h-8 w-auto opacity-60 brightness-0 dark:invert"
                 />
               </li>
             ))}

@@ -419,7 +419,7 @@ const STATS = [
 
 const Btn = ({ children, className = "" }) => (
   <span
-    className={`inline-flex h-8 items-center gap-1.5 rounded-lg bg-[#222222] px-3 text-[12px] font-semibold text-white/90 border border-white/[0.08] shadow-sm hover:bg-[#282828] transition-colors cursor-pointer ${className}`}
+    className={`inline-flex h-8 items-center gap-1.5 rounded-lg bg-hp-raised px-3 text-[12px] font-semibold text-hp-ink border border-hp-line-2 shadow-sm hover:bg-hp-chip transition-colors cursor-pointer ${className}`}
   >
     {children}
   </span>
@@ -430,11 +430,11 @@ function WebBrowserFrame({ children }) {
     <div
       aria-hidden="true"
       data-app-frame="true"
-      className="hp-window @container flex flex-col overflow-hidden rounded-[12px] text-left font-os text-[13px] text-hp-ink bg-[#171717] h-full w-full max-w-[1040px] shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_20px_44px_-20px_rgba(0,0,0,0.5)] border border-white/[0.08]"
+      className="hp-window @container flex flex-col overflow-hidden rounded-[12px] text-left font-os text-hp-ink bg-hp-plate h-full w-full max-w-[1040px] shadow-hp-plate border border-hp-plate-line"
     >
-      <div className="flex h-[38px] shrink-0 items-end justify-between bg-[#141414] px-2 border-b border-white/[0.06]">
+      <div className="flex h-[38px] shrink-0 items-end justify-between bg-hp-surface px-2 border-b border-hp-line-2">
         <div className="flex items-end gap-1">
-          <div className="relative flex h-[31px] w-[210px] min-w-0 items-center gap-2 rounded-t-[8px] bg-[#1e1e1e] px-3 text-[12px] text-white/90 border-t border-x border-white/[0.08]">
+          <div className="relative flex h-[31px] w-[210px] min-w-0 items-center gap-2 rounded-t-[8px] bg-hp-raised px-3 text-[12px] text-hp-ink border-t border-x border-hp-line-2">
             <span className="grid size-4 shrink-0 place-items-center rounded-[3px] bg-black font-display text-[8px] font-bold text-white">
               Cal
             </span>
@@ -442,23 +442,23 @@ function WebBrowserFrame({ children }) {
               Insights | Cal.com
             </span>
             <X
-              className="size-3 shrink-0 text-white/40 hover:text-white cursor-pointer"
+              className="size-3 shrink-0 text-hp-subtle hover:text-hp-ink cursor-pointer"
               aria-hidden="true"
             />
           </div>
           <button
             type="button"
-            className="mb-1 ms-1 grid size-6 place-items-center rounded-md text-white/40 hover:bg-white/[0.06] hover:text-white"
+              className="mb-1 ms-1 grid size-6 place-items-center rounded-md text-hp-subtle hover:bg-hp-ink/5 hover:text-hp-ink"
           >
             <Plus className="size-3.5" />
           </button>
         </div>
 
-        <div className="flex items-center text-white/50 -me-2 h-full">
-          <span className="grid h-full w-10 place-items-center hover:bg-white/[0.06] hover:text-white cursor-pointer">
+        <div className="flex items-center text-hp-subtle -me-2 h-full">
+          <span className="grid h-full w-10 place-items-center hover:bg-hp-ink/5 hover:text-hp-ink cursor-pointer">
             <Minus className="size-3" />
           </span>
-          <span className="grid h-full w-10 place-items-center hover:bg-white/[0.06] hover:text-white cursor-pointer">
+          <span className="grid h-full w-10 place-items-center hover:bg-hp-ink/5 hover:text-hp-ink cursor-pointer">
             <svg
               aria-hidden="true"
               className="size-2.5"
@@ -476,30 +476,30 @@ function WebBrowserFrame({ children }) {
         </div>
       </div>
 
-      <div className="flex h-10 shrink-0 items-center gap-2.5 bg-[#1e1e1e] px-3 text-white/60 border-b border-white/[0.08]">
+      <div className="flex h-10 shrink-0 items-center gap-2.5 bg-hp-surface px-3 text-hp-muted border-b border-hp-line-2">
         <div className="flex items-center gap-1.5">
-          <ArrowLeft className="size-3.5 text-white/70 hover:text-white cursor-pointer" />
-          <ArrowRight className="size-3.5 text-white/30" />
-          <RotateCw className="size-3.5 text-white/70 hover:text-white cursor-pointer" />
+          <ArrowLeft className="size-3.5 text-hp-subtle hover:text-hp-ink cursor-pointer" />
+          <ArrowRight className="size-3.5 text-hp-subtle/40" />
+          <RotateCw className="size-3.5 text-hp-subtle hover:text-hp-ink cursor-pointer" />
         </div>
 
-        <div className="flex h-7 min-w-0 flex-1 items-center gap-2 rounded-full bg-[#141414] px-3 text-[12px] border border-white/[0.06]">
-          <SlidersHorizontal className="size-3 shrink-0 text-white/50" />
-          <span className="truncate text-white/90 font-normal">
+        <div className="flex h-7 min-w-0 flex-1 items-center gap-2 rounded-full bg-hp-well px-3 text-[12px] border border-hp-line-2">
+          <SlidersHorizontal className="size-3 shrink-0 text-hp-subtle" />
+          <span className="truncate text-hp-ink font-normal">
             app.cal.com/insights
           </span>
-          <Star className="ms-auto size-3.5 shrink-0 text-white/40 hover:text-white cursor-pointer" />
+          <Star className="ms-auto size-3.5 shrink-0 text-hp-subtle hover:text-hp-ink cursor-pointer" />
         </div>
 
-        <div className="flex items-center gap-2 text-white/60">
-          <span className="grid size-6 place-items-center rounded-full bg-white/[0.06] text-white/70">
+        <div className="flex items-center gap-2 text-hp-muted">
+          <span className="grid size-6 place-items-center rounded-full bg-hp-chip text-hp-body">
             <UserRound className="size-3.5" />
           </span>
-          <EllipsisVertical className="size-3.5 text-white/60 hover:text-white cursor-pointer" />
+          <EllipsisVertical className="size-3.5 text-hp-subtle hover:text-hp-ink cursor-pointer" />
         </div>
       </div>
 
-      <div className="flex min-h-0 flex-1 bg-[#181818] overflow-hidden">
+      <div className="flex min-h-0 flex-1 bg-hp-paper overflow-hidden">
         {children}
       </div>
     </div>
@@ -514,7 +514,7 @@ function WebScene({ step, active }) {
     >
       <WebBrowserFrame>
         <div className="flex size-full bg-hp-surface text-hp-text">
-          <div className="flex w-[184px] shrink-0 flex-col gap-0.5 border-r border-white/[0.08] bg-[#191919] p-3 @max-[720px]:hidden">
+          <div className="flex w-[184px] shrink-0 flex-col gap-0.5 border-r border-hp-line-2 bg-hp-surface p-3 @max-[720px]:hidden">
             <div className="flex items-center gap-2 px-2 py-1.5">
               <img
                 alt=""
@@ -523,7 +523,7 @@ function WebScene({ step, active }) {
                 src="https://cal.com/landing/film/graduation-portrait.webp"
                 className="size-5 rounded-full object-cover object-[47%_30%]"
               />
-              <span className="font-medium text-[13px] text-white">
+              <span className="font-medium text-[13px] text-hp-ink">
                 Lena Brandt
               </span>
             </div>
@@ -531,7 +531,7 @@ function WebScene({ step, active }) {
             {NAV.map(([Icon, label]) => (
               <span
                 key={label}
-                className="flex h-7 items-center gap-2.5 rounded-md px-2 text-[12.5px] text-hp-body hover:text-white transition-colors cursor-pointer"
+                className="flex h-7 items-center gap-2.5 rounded-md px-2 text-[12.5px] text-hp-body hover:text-hp-ink transition-colors cursor-pointer"
               >
                 <Icon
                   strokeWidth={1.75}
@@ -541,7 +541,7 @@ function WebScene({ step, active }) {
                 {label}
               </span>
             ))}
-            <span className="flex h-7 items-center gap-2.5 rounded-md px-2 text-[12.5px] text-white font-medium">
+            <span className="flex h-7 items-center gap-2.5 rounded-md px-2 text-[12.5px] text-hp-ink font-medium">
               <ChartColumn
                 strokeWidth={1.75}
                 className="size-4 text-hp-subtle"
@@ -554,14 +554,14 @@ function WebScene({ step, active }) {
                 key={label}
                 className={`ms-2 flex h-7 items-center rounded-md px-3 text-[12.5px] transition-colors cursor-pointer ${
                   i === 0
-                    ? "bg-[#282828] font-medium text-white"
-                    : "text-hp-body hover:text-white"
+                    ? "bg-hp-chip font-medium text-hp-ink"
+                    : "text-hp-body hover:text-hp-ink"
                 }`}
               >
                 {label}
               </span>
             ))}
-            <span className="mt-auto flex h-7 items-center gap-2.5 px-2 text-[12.5px] text-hp-body hover:text-white transition-colors cursor-pointer">
+            <span className="mt-auto flex h-7 items-center gap-2.5 px-2 text-[12.5px] text-hp-body hover:text-hp-ink transition-colors cursor-pointer">
               <BookOpen
                 strokeWidth={1.75}
                 className="size-4 text-hp-subtle"
@@ -573,7 +573,7 @@ function WebScene({ step, active }) {
 
           <div className="flex min-w-0 flex-1 flex-col overflow-hidden p-5 justify-between">
             <div>
-              <p className="m-0 font-display text-[20px] font-semibold text-white leading-tight">
+              <p className="m-0 font-display text-[20px] font-semibold text-hp-ink leading-tight">
                 Insights
               </p>
               <p className="mt-1 mb-0 text-[12px] text-hp-subtle">
@@ -584,7 +584,7 @@ function WebScene({ step, active }) {
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
                     <Btn>
-                      <span className="grid size-4 place-items-center rounded-full bg-white text-[8px] font-bold text-black">
+                      <span className="grid size-4 place-items-center rounded-full bg-hp-ink text-[8px] font-bold text-hp-plate">
                         N
                       </span>
                       Team: Northwind Sales
@@ -608,11 +608,11 @@ function WebScene({ step, active }) {
                 </div>
               </div>
 
-              <div className="mt-3.5 rounded-xl border border-white/[0.08] bg-[#1e1e1e]/50 p-2.5">
-                <p className="m-0 px-1 pb-2 text-[12px] font-semibold text-white/90">
+              <div className="mt-3.5 rounded-xl border border-hp-line-2 bg-hp-raised p-2.5">
+                <p className="m-0 px-1 pb-2 text-[12px] font-semibold text-hp-ink">
                   Performance
                 </p>
-                <div className="grid grid-cols-4 rounded-lg border border-white/[0.08] bg-[#161616] divide-x divide-white/[0.08] @max-[900px]:grid-cols-2">
+                <div className="grid grid-cols-4 rounded-lg border border-hp-line-2 bg-hp-paper divide-x divide-hp-line-2 @max-[900px]:grid-cols-2">
                   {STATS.map(([label, value, delta, dir], i) => (
                     <div key={label} className="px-3 py-2.5">
                       <p className="m-0 flex items-center gap-1 truncate text-[10.5px] text-hp-body">
@@ -621,11 +621,11 @@ function WebScene({ step, active }) {
                           <Info className="size-3 opacity-60 shrink-0" />
                         ) : null}
                       </p>
-                      <p className="mt-1.5 mb-0 text-[19px] leading-snug font-semibold text-white tabular-nums">
+                      <p className="mt-1.5 mb-0 text-[19px] leading-snug font-semibold text-hp-ink tabular-nums">
                         {value}
                       </p>
                       <div className="mt-1 flex items-center">
-                        <span className="inline-flex items-center gap-0.5 rounded bg-[#242424] px-1.5 py-0.5 text-[10px] font-semibold text-white/90">
+                        <span className="inline-flex items-center gap-0.5 rounded bg-hp-chip px-1.5 py-0.5 text-[10px] font-semibold text-hp-ink">
                           {dir === "down" && (
                             <ArrowUp className="size-2.5 rotate-180" />
                           )}
@@ -641,17 +641,17 @@ function WebScene({ step, active }) {
               </div>
             </div>
 
-            <div className="mt-3 rounded-xl border border-white/[0.08] bg-[#1e1e1e]/50 p-2.5">
-              <p className="m-0 flex items-center gap-1.5 px-1 pb-2 text-[12px] font-semibold text-white/90">
+            <div className="mt-3 rounded-xl border border-hp-line-2 bg-hp-raised p-2.5">
+              <p className="m-0 flex items-center gap-1.5 px-1 pb-2 text-[12px] font-semibold text-hp-ink">
                 Events <Info className="size-3 opacity-60" />
               </p>
-              <div className="grid h-[150px] place-items-center rounded-lg border border-white/[0.08] bg-[#161616]">
+              <div className="grid h-[150px] place-items-center rounded-lg border border-hp-line-2 bg-hp-paper">
                 <Donut draw={step >= 1} />
               </div>
             </div>
           </div>
 
-          <div className="flex w-[345px] shrink-0 flex-col border-l border-white/[0.08] bg-[#191919] p-3.5 justify-between @max-[900px]:hidden">
+          <div className="flex w-[345px] shrink-0 flex-col border-l border-hp-line-2 bg-hp-surface p-3.5 justify-between @max-[900px]:hidden">
             <div>
               <div className="flex h-7 shrink-0 items-center gap-2">
                 <svg
@@ -659,7 +659,7 @@ function WebScene({ step, active }) {
                   width="14"
                   height="14"
                   viewBox="0 0 18 18"
-                  className="shrink-0 text-white"
+                  className="shrink-0 text-hp-ink"
                 >
                   {Array.from({ length: 8 }, (_, i) => {
                     const a = (i * Math.PI) / 4;
@@ -675,13 +675,13 @@ function WebScene({ step, active }) {
                   })}
                   <circle cx="9" cy="9" r="1.6" fill="currentColor" />
                 </svg>
-                <span className="min-w-0 flex-1 truncate font-semibold text-[13px] text-white">
+                <span className="min-w-0 flex-1 truncate font-semibold text-[13px] text-hp-ink">
                   Bookings since September
                 </span>
                 <span className="flex items-center gap-2.5 text-hp-subtle">
-                  <Maximize2 className="size-3.5 hover:text-white cursor-pointer" />
-                  <Minus className="size-3.5 hover:text-white cursor-pointer" />
-                  <X className="size-3.5 hover:text-white cursor-pointer" />
+                  <Maximize2 className="size-3.5 hover:text-hp-ink cursor-pointer" />
+                  <Minus className="size-3.5 hover:text-hp-ink cursor-pointer" />
+                  <X className="size-3.5 hover:text-hp-ink cursor-pointer" />
                 </span>
               </div>
 
@@ -699,7 +699,7 @@ function WebScene({ step, active }) {
                     ].map(([l, dot], i) => (
                       <span
                         key={l}
-                        className={`inline-flex shrink-0 items-center gap-1.5 rounded-md bg-[#242424] px-2 py-1 text-white/90 border border-white/[0.06] ${i > 1 ? "opacity-50" : ""}`}
+                        className={`inline-flex shrink-0 items-center gap-1.5 rounded-md bg-hp-chip px-2 py-1 text-hp-ink border border-hp-line-2 ${i > 1 ? "opacity-50" : ""}`}
                       >
                         <i className={`size-1.5 rounded-full ${dot}`} />
                         {l}
@@ -709,7 +709,7 @@ function WebScene({ step, active }) {
                 </div>
 
                 <div
-                  className={`rounded-xl border border-white/[0.08] bg-[#161616] p-2 shadow-sm ${rise(step >= 2)}`}
+                  className={`rounded-xl border border-hp-line-2 bg-hp-paper p-2 shadow-sm ${rise(step >= 2)}`}
                 >
                   <TrendChart draw={step >= 2} />
                 </div>
@@ -717,21 +717,21 @@ function WebScene({ step, active }) {
                 <div
                   className={`flex gap-3 px-1 text-hp-subtle ${rise(step >= 3)}`}
                 >
-                  <ThumbsUp className="size-3.5 hover:text-white cursor-pointer" />
-                  <ThumbsDown className="size-3.5 hover:text-white cursor-pointer" />
+                  <ThumbsUp className="size-3.5 hover:text-hp-ink cursor-pointer" />
+                  <ThumbsDown className="size-3.5 hover:text-hp-ink cursor-pointer" />
                 </div>
               </div>
             </div>
 
             <div className="mt-auto pt-2">
-              <div className="flex items-center gap-1.5 rounded-t-lg bg-[#222222] px-3 py-1.5 text-[11px] font-medium text-white/80 border-t border-x border-white/[0.08]">
+              <div className="flex items-center gap-1.5 rounded-t-lg bg-hp-chip px-3 py-1.5 text-[11px] font-medium text-hp-ink border-t border-x border-hp-line-2">
                 <Box className="size-3" />
                 Current page insights
                 <X className="ms-auto size-3 opacity-60 hover:opacity-100 cursor-pointer" />
               </div>
-              <div className="flex h-[72px] flex-col justify-between rounded-b-lg bg-[#191919] p-2.5 ps-3 text-[12px] text-hp-subtle border border-white/[0.08]">
+              <div className="flex h-[72px] flex-col justify-between rounded-b-lg bg-hp-surface p-2.5 ps-3 text-[12px] text-hp-subtle border border-hp-line-2">
                 Ask anything...
-                <span className="grid size-6 place-items-center self-end rounded-full bg-white text-black shadow-sm">
+                <span className="grid size-6 place-items-center self-end rounded-full bg-hp-ink text-hp-plate shadow-sm">
                   <ArrowUp className="size-3.5 stroke-[2.5]" />
                 </span>
               </div>

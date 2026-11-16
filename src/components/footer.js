@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   CalendarDays,
   MonitorSmartphone,
@@ -21,6 +21,7 @@ import {
   Moon,
 } from "lucide-react";
 import PixelPhoto from "./pixelPhoto";
+import { useTheme } from "./themeProvider";
 
 const base = "https://cal.com";
 
@@ -320,28 +321,18 @@ function IconButton({ href, label, children }) {
 }
 
 export default function Footer() {
-  const [theme, setTheme] = useState("system");
+  const { theme, setTheme } = useTheme();
   const [language, setLanguage] = useState("en");
 
-  useEffect(() => {
-    const root = document.documentElement;
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
-
-    const applyTheme = () => {
-      const dark = theme === "dark" || (theme === "system" && media.matches);
-      root.classList.toggle("dark", dark);
-    };
-
-    applyTheme();
-
-    if (theme === "system") {
-      media.addEventListener("change", applyTheme);
-      return () => media.removeEventListener("change", applyTheme);
-    }
-  }, [theme]);
-
   return (
-    <footer className="relative mt-12 overflow-hidden bg-[#101010] text-sm font-normal leading-normal text-white/60 [&_a]:text-inherit [&_a]:no-underline [&_a]:transition-colors [&_a]:duration-150 [&_a:hover]:text-white [&_ul]:m-0 [&_ul]:list-none [&_ul]:p-0">
+    <footer
+      data-page-footer="true"
+      className="relative mt-12 overflow-hidden bg-[#101010] text-sm font-normal leading-normal text-white/60 [&_a]:text-inherit [&_a]:no-underline [&_a]:transition-colors [&_a]:duration-150 [&_a:hover]:text-white [&_ul]:m-0 [&_ul]:list-none [&_ul]:p-0"
+    >
+      <div
+        className="relative z-10 h-12 w-full rounded-b-[32px] bg-background"
+        aria-hidden="true"
+      />
       <div className="mx-auto w-full max-w-[1440px] px-8 pt-24 max-tablet:px-6 max-tablet:pt-14">
         <div className="grid grid-cols-[1.3fr_repeat(6,1fr)] gap-x-8 gap-y-12 max-desktop:grid-cols-3 max-tablet:grid-cols-2 max-tablet:gap-y-10">
           <div className="grid content-start justify-items-start gap-5 max-desktop:col-span-full [&_img]:block">
@@ -465,11 +456,11 @@ export default function Footer() {
                     key={value}
                     type="button"
                     aria-label={label}
-                    aria-pressed={theme === value}
+                    aria-pressed={(theme ?? "system") === value}
                     title={label}
                     onClick={() => setTheme(value)}
                     className={`grid size-7 place-items-center rounded-[8px] transition-colors duration-100 ease-out hover:text-white focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-1 ${
-                      theme === value
+                      (theme ?? "system") === value
                         ? "bg-white/[0.14] text-white"
                         : "text-white/55"
                     }`}

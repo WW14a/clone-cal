@@ -36,10 +36,13 @@ function useCycle(durations, running) {
 }
 
 const IMG = {
-  graduation: "https://cal.com/landing/film/graduation-portrait.webp",
-  retirement: "https://cal.com/landing/film/retirement-party-fun.webp",
-  dinner: "https://cal.com/landing/film/dinner-party-apartment-1.webp",
-  office: "https://cal.com/landing/film/office-holiday-party.webp",
+  graduation: "booking-demo.avif",
+  retirement:
+    "https://cal.com/_site/_next/image?url=%2Flanding%2Ffilm%2Fcoding-in-the-phone-booth.webp&w=384&q=75 ",
+  dinner:
+    "	https://cal.com/_site/_next/image?url=%2Flanding%2Ffilm%2Fconference-room-gaze.webp&w=384&q=75",
+  office:
+    "	https://cal.com/_site/_next/image?url=%2Flanding%2Ffilm%2Fcoding-in-the-phone-booth.webp&w=384&q=75 ",
   reilly: "https://cal.com/landing/film/reilly.webp",
 };
 
@@ -142,7 +145,7 @@ function BookingDemo({ running }) {
 
   return (
     <div className="@container w-[min(100%-48px,540px)] max-tablet:w-[calc(100%-24px)]">
-      <div className="flex items-center gap-4 rounded-[14px] bg-hp-raised px-4 py-3.5 shadow-hp-raised max-tablet:gap-3 max-tablet:p-3">
+      <div className="flex border items-center gap-4 rounded-[14px] bg-hp-raised px-4 py-3.5 shadow-hp-raised max-tablet:gap-3 max-tablet:p-3">
         <div className="min-w-0 flex-1">
           <p className="m-0 truncate text-sm leading-5 font-semibold text-hp-text">
             <b>Intro call</b>{" "}
@@ -349,18 +352,18 @@ function RoundRobinDemo({ running }) {
   const turn = Math.floor(step / 2);
   const bumped = step % 2 === 1;
 
-  const offset = `${turn * 96}px`;
+  const activePosition = `${((turn + 0.5) / PEOPLE.length) * 100}%`;
 
   return (
     <div className="w-full overflow-hidden pt-9">
-      <div className="relative flex justify-center">
+      <div className="relative mx-auto grid w-full max-w-[288px] grid-cols-3 justify-items-center">
         <span
           className={cn(
             "absolute bottom-[calc(100%+10px)] left-0 rounded-full bg-hp-raised px-2.5 py-1.5 text-xs leading-none font-medium whitespace-nowrap text-hp-text shadow-hp-raised transition-[left,opacity,transform] duration-300 ease-hp",
             bumped ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0",
           )}
           style={{
-            left: `calc(50% - 96px + ${offset})`,
+            left: activePosition,
             transform: bumped ? "translate(-50%, 0)" : "translate(-50%, -8px)",
           }}
         >
@@ -368,9 +371,9 @@ function RoundRobinDemo({ running }) {
         </span>
 
         <i
-          className="absolute -top-[5px] left-[45px] size-[74px] rounded-full bg-hp-tint/8 transition-transform duration-[520ms] ease-hp after:absolute after:right-1 after:bottom-1 after:size-3 after:rounded-full after:bg-hp-accent after:shadow-[0_0_0_2.5px_var(--color-hp-plate)] after:content-['']"
+          className="absolute -top-[5px] left-0 size-[74px] -translate-x-1/2 rounded-full bg-hp-tint/8 transition-[left] duration-[520ms] ease-hp after:absolute after:right-1 after:bottom-1 after:size-3 after:rounded-full after:bg-hp-accent after:shadow-[0_0_0_2.5px_var(--color-hp-plate)] after:content-['']"
           style={{
-            transform: `translateX(${offset})`,
+            left: activePosition,
           }}
         />
 
@@ -380,7 +383,7 @@ function RoundRobinDemo({ running }) {
           return (
             <div
               key={person.name}
-              className="relative grid w-24 shrink-0 justify-items-center gap-0.5"
+              className="relative grid w-full max-w-24 justify-items-center gap-0.5"
             >
               <Face
                 src={person.src}
@@ -516,7 +519,7 @@ function EmbedDemo({ running }) {
         </span>
       </pre>
 
-      <div className="w-[198px] overflow-hidden rounded-xl bg-hp-raised shadow-hp-raised">
+      <div className="w-[198px] border overflow-hidden rounded-xl bg-hp-raised shadow-hp-raised">
         <div className="border-b border-hp-line px-2.5 py-[7px] text-[11px] leading-none font-medium text-hp-subtle">
           yourapp.com/book
         </div>

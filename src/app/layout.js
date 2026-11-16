@@ -1,4 +1,5 @@
 import { Cal_Sans, Geist, Geist_Mono, Inter } from "next/font/google";
+import { ThemeProvider } from "@/components/themeProvider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -26,12 +27,13 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body
-        className={`min-h-full flex flex-col ${inter.variable} ${calSans.variable} font-sans bg-[#0a0a0a]`}
+        className={`min-h-full flex flex-col ${inter.variable} ${calSans.variable} font-sans`}
       >
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

@@ -45,19 +45,19 @@ const FACES = [
 const PRINTS = [
   {
     alt: "Bowls of snacks and jugs of juice laid out on a table, seen from above.",
-    src: "https://website.cal.com/_site/_next/image?dpl=dpl_887d4D3YvcX3mT7RdmiB6Ei2kQbo&q=75&url=%2Flanding%2Ffilm%2Fconfetti-on-a-table.webp&w=1920",
+    src: "print3.avif",
     pos: { left: "8%", top: "6%" },
     rotate: -7,
   },
   {
     alt: "Friends playing a card game on a picnic blanket.",
-    src: "https://website.cal.com/_site/_next/image?dpl=dpl_887d4D3YvcX3mT7RdmiB6Ei2kQbo&q=75&url=%2Flanding%2Ffilm%2Fcrowded-room.webp&w=1920",
+    src: "print2.avif",
     pos: { left: "50%", top: "30%" },
     rotate: 5,
   },
   {
     alt: "Neighbours dancing in the street at a block party between brownstones.",
-    src: "https://website.cal.com/_site/_next/image?dpl=dpl_887d4D3YvcX3mT7RdmiB6Ei2kQbo&q=75&url=%2Flanding%2Ffilm%2Fbridal-shower-2.webp&w=1920",
+    src: "print1.avif",
     pos: { left: "14%", top: "54%" },
     rotate: -3,
   },
